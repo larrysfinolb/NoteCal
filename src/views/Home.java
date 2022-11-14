@@ -2,6 +2,8 @@ package views;
 
 import components.InputText;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Home extends JFrame {
@@ -88,5 +90,177 @@ public class Home extends JFrame {
         contenedor.add(notaAlta);
         contenedor.add(sumaTotal);
         contenedor.add(promedio);
+
+        boton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String message = "";
+                float suma = 0;
+                float max = 0;
+                float min = 20;
+                float average = 0;
+
+                //fisica
+                if (!isNumeric(inputFisica.getField().getText())) {
+                    message = "La nota de " + inputFisica.getLabel().getText() + " no es un número.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    float nota = Float.parseFloat(inputFisica.getField().getText());
+                    if (nota > 20 || nota < 0) {
+                        message = "La nota de " + inputFisica.getLabel().getText() + " debe ser un número entre 0 y 20";
+                        JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        suma+=nota;
+                        max = nota > max ? nota : max;
+                        min = nota < min ? nota : min;
+                    }
+                }
+                
+                //quimica
+                if (!isNumeric(inputQuimica.getField().getText())) {
+                    message = "La nota de " + inputQuimica.getLabel().getText() + " no es un número.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    float nota = Float.parseFloat(inputQuimica.getField().getText());
+                    if (nota > 20 || nota < 0) {
+                        message = "La nota de " + inputQuimica.getLabel().getText() + " debe ser un número entre 0 y 20";
+                        JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        suma+=nota;
+                        max = nota > max ? nota : max;
+                        min = nota < min ? nota : min;
+                    }
+                }
+                
+                //biologia
+                if (!isNumeric(inputBiologia.getField().getText())) {
+                    message = "La nota de " + inputBiologia.getLabel().getText() + " no es un número.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    float nota = Float.parseFloat(inputBiologia.getField().getText());
+                    if (nota > 20 || nota < 0) {
+                        message = "La nota de " + inputBiologia.getLabel().getText() + " debe ser un número entre 0 y 20";
+                        JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        suma+=nota;
+                        max = nota > max ? nota : max;
+                        min = nota < min ? nota : min;
+                    }
+                }
+                
+                //matematicas
+                if (!isNumeric(inputMatematica.getField().getText())) {
+                    message = "La nota de " + inputMatematica.getLabel().getText() + " no es un número.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    float nota = Float.parseFloat(inputMatematica.getField().getText());
+                    if (nota > 20 || nota < 0) {
+                        message = "La nota de " + inputMatematica.getLabel().getText() + " debe ser un número entre 0 y 20";
+                        JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        suma+=nota;
+                        max = nota > max ? nota : max;
+                        min = nota < min ? nota : min;
+                    }
+                }
+                
+                //historia
+                if (!isNumeric(inputHistoria.getField().getText())) {
+                    message = "La nota de " + inputHistoria.getLabel().getText() + " no es un número.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    float nota = Float.parseFloat(inputHistoria.getField().getText());
+                    if (nota > 20 || nota < 0) {
+                        message = "La nota de " + inputHistoria.getLabel().getText() + " debe ser un número entre 0 y 20";
+                        JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        suma+=nota;
+                        max = nota > max ? nota : max;
+                        min = nota < min ? nota : min;
+                    }
+                }
+                
+                //geografia
+                if (!isNumeric(inputGeografia.getField().getText())) {
+                    message = "La nota de " + inputGeografia.getLabel().getText() + " no es un número.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    float nota = Float.parseFloat(inputGeografia.getField().getText());
+                    if (nota > 20 || nota < 0) {
+                        message = "La nota de " + inputGeografia.getLabel().getText() + " debe ser un número entre 0 y 20";
+                        JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        suma+=nota;
+                        max = nota > max ? nota : max;
+                        min = nota < min ? nota : min;
+                    }
+                }
+                
+                //dibujo
+                if (!isNumeric(inputDibujo.getField().getText())) {
+                    message = "La nota de " + inputDibujo.getLabel().getText() + " no es un número.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    float nota = Float.parseFloat(inputDibujo.getField().getText());
+                    if (nota > 20 || nota < 0) {
+                        message = "La nota de " + inputDibujo.getLabel().getText() + " debe ser un número entre 0 y 20";
+                        JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        suma+=nota;
+                        max = nota > max ? nota : max;
+                        min = nota < min ? nota : min;
+                    }
+                }
+                
+                //educ fisica
+                if (!isNumeric(inputEducFisica.getField().getText())) {
+                    message = "La nota de " + inputEducFisica.getLabel().getText() + " no es un número.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    float nota = Float.parseFloat(inputEducFisica.getField().getText());
+                    if (nota > 20 || nota < 0) {
+                        message = "La nota de " + inputEducFisica.getLabel().getText() + " debe ser un número entre 0 y 20";
+                        JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        suma+=nota;
+                        max = nota > max ? nota : max;
+                        min = nota < min ? nota : min;
+                    }
+                }
+                
+                if (message == ""){
+                    average = suma / 8;
+                    
+                    notaBaja.setText("Nota más baja: " + min);
+                    notaAlta.setText("Nota más alta: " + max);
+                    sumaTotal.setText("Suma total: " + suma);
+                    promedio.setText("Promedio: " + average);
+                }
+            }
+        });
+    }
+
+    public static boolean isNumeric(String str) {
+        try {
+            Float.parseFloat(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

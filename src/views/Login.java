@@ -67,20 +67,21 @@ public class Login extends JFrame {
                             JOptionPane.ERROR_MESSAGE);
                 }
                 if (!inputSeccion.getField().getText().toUpperCase().matches("^A|B|C$")) {
-                    message = "El campo " + inputSeccion.getLabel().getText() + " es incorrecto, las secciones disponibles son A, B y C";
+                    message = "El campo " + inputSeccion.getLabel().getText() + " es incorrecto, las secciones disponibles son A, B y C.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                             JOptionPane.ERROR_MESSAGE);
                 }
                 String passText = new String(inputContrasena.getField().getPassword());
                 if (!passText.equals("123456")) {
-                    message = "La contraseña es incorrecta";
+                    message = "La contraseña es incorrecta.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                             JOptionPane.ERROR_MESSAGE);
                 }
                 
                 if (message == ""){
-                    //Home home = new Home();
-                    //home.setVisible(true);
+                    Home home = new Home();
+                    home.setVisible(true);
+                    setVisible(false);
                 }
             }
         });
