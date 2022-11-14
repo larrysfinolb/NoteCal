@@ -11,6 +11,7 @@ public class Login extends JFrame {
     public Login() {
         setTitle("Inicio de sesión");
         setSize(355, 490);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Obtenemos el panel y le establecemos el layout a null
