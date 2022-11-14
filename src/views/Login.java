@@ -2,6 +2,8 @@ package views;
 
 import components.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Login extends JFrame {
@@ -44,5 +46,43 @@ public class Login extends JFrame {
         JButton boton = new JButton("Iniciar sesión");
         boton.setBounds(85, 395, 177, 35);
         contenedor.add(boton);
+
+        boton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String message = "";
+                if (!inputCedula.getField().getText().matches("^[0-9]{7,9}$")) {
+                    message = "El campo " + inputCedula.getLabel().getText() + " es incorrecto, deberian haber de 7 a 9 numeros.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+                if (!inputNombre.getField().getText().matches("^[A-ZÁ-ÚÑ][a-zA-Zá-úÁ-ÚñÑ]{2,}(?: [A-ZÁ-ÚÑ][a-zA-Zá-úÁ-ÚñÑ]*){0,2}$")) {
+                    message = "El campo " + inputNombre.getLabel().getText() + " es incorrecto, debe empezar en mayusculas y contener al menos 3 letras.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+                if (!inputGrado.getField().getText().matches("^[1-9]|10|11$")) {
+                    message = "El campo " + inputGrado.getLabel().getText() + " es incorrecto, debe ser un número entre el 1 y el 11.";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+                if (!inputSeccion.getField().getText().toUpperCase().matches("^A|B|C$")) {
+                    message = "El campo " + inputSeccion.getLabel().getText() + " es incorrecto, las secciones disponibles son A, B y C";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+                String passText = new String(inputContrasena.getField().getPassword());
+                if (!passText.equals("123456")) {
+                    message = "La contraseña es incorrecta";
+                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+                
+                if (message == ""){
+                    //Home home = new Home();
+                    //home.setVisible(true);
+                }
+            }
+        });
     }
+
 }
