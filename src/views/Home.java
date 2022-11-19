@@ -65,9 +65,12 @@ public class Home extends JFrame {
         contenedor.add(inputEducFisica.getField());
 
         // Creamos el boton
-        JButton boton = new JButton("Calcular resultados");
-        boton.setBounds(300, 240, 180, 35);
-        contenedor.add(boton);
+        JButton btnCalc = new JButton("Calcular resultados");
+        btnCalc.setBounds(215, 240, 180, 35);
+        contenedor.add(btnCalc);
+        JButton btnLogout = new JButton("Volver al login");
+        btnLogout.setBounds(410, 240, 180, 35);
+        contenedor.add(btnLogout);
 
         // Creamos las etiquecas de los resultados
         Font fuente = new Font("Arial", Font.BOLD, 16);
@@ -91,7 +94,7 @@ public class Home extends JFrame {
         contenedor.add(sumaTotal);
         contenedor.add(promedio);
 
-        boton.addActionListener(new ActionListener() {
+        btnCalc.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String message = "";
                 float suma = 0;
@@ -253,7 +256,16 @@ public class Home extends JFrame {
                 }
             }
         });
+        
+        btnLogout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Login login = new Login();
+                login.setVisible(true);
+                setVisible(false);
+            }
+        });
     }
+    
 
     public static boolean isNumeric(String str) {
         try {

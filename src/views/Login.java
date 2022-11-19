@@ -10,7 +10,7 @@ public class Login extends JFrame {
 
     public Login() {
         setTitle("Inicio de sesión");
-        setSize(355, 490);
+        setSize(355, 450);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -38,14 +38,9 @@ public class Login extends JFrame {
         contenedor.add(inputSeccion.getLabel());
         contenedor.add(inputSeccion.getField());
 
-        // Creamos el input para la contraseña acompañado de su respectivo label
-        InputPassword inputContrasena = new InputPassword("Contraseña del estudiante", 20, 320, 300, 25);
-        contenedor.add(inputContrasena.getLabel());
-        contenedor.add(inputContrasena.getField());
-
         // Creamos el boton
         JButton boton = new JButton("Iniciar sesión");
-        boton.setBounds(85, 395, 177, 35);
+        boton.setBounds(85, 335, 177, 35);
         contenedor.add(boton);
 
         boton.addActionListener(new ActionListener() {
@@ -68,12 +63,6 @@ public class Login extends JFrame {
                 }
                 if (!inputSeccion.getField().getText().toUpperCase().matches("^A|B|C$")) {
                     message = "El campo " + inputSeccion.getLabel().getText() + " es incorrecto, las secciones disponibles son A, B y C.";
-                    JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
-                            JOptionPane.ERROR_MESSAGE);
-                }
-                String passText = new String(inputContrasena.getField().getPassword());
-                if (!passText.equals("123456")) {
-                    message = "La contraseña es incorrecta.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                             JOptionPane.ERROR_MESSAGE);
                 }
