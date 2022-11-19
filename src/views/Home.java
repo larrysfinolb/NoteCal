@@ -6,12 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+// // Definimos la clase Home la cual extiende de un JFrame
 public class Home extends JFrame {
 
+    // Definimos el constructor de la clase Home
     public Home() {
+        // Establecemos las propiedades de la ventana
         setTitle("Principal");
         setSize(820, 460);
         setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Obtenemos el panel y le establecemos el layout a null
@@ -64,7 +68,7 @@ public class Home extends JFrame {
         contenedor.add(inputEducFisica.getLabel());
         contenedor.add(inputEducFisica.getField());
 
-        // Creamos el boton
+        // Creamos el boton de calcular
         JButton btnCalc = new JButton("Calcular resultados");
         btnCalc.setBounds(215, 240, 180, 35);
         contenedor.add(btnCalc);
@@ -94,6 +98,7 @@ public class Home extends JFrame {
         contenedor.add(sumaTotal);
         contenedor.add(promedio);
 
+        // Le añadimos un evento al boton de calcular
         btnCalc.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String message = "";
@@ -102,7 +107,7 @@ public class Home extends JFrame {
                 float min = 20;
                 float average = 0;
 
-                //fisica
+                // Verificamos que el valor ingresado en el input de fisica sea un numero que este entre 0 y 20
                 if (!isNumeric(inputFisica.getField().getText())) {
                     message = "La nota de " + inputFisica.getLabel().getText() + " no es un número.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
@@ -114,13 +119,13 @@ public class Home extends JFrame {
                         JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                                 JOptionPane.ERROR_MESSAGE);
                     } else {
-                        suma+=nota;
+                        suma += nota;
                         max = nota > max ? nota : max;
                         min = nota < min ? nota : min;
                     }
                 }
-                
-                //quimica
+
+                // Verificamos que el valor ingresado en el input de quimica sea un numero que este entre 0 y 20
                 if (!isNumeric(inputQuimica.getField().getText())) {
                     message = "La nota de " + inputQuimica.getLabel().getText() + " no es un número.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
@@ -132,13 +137,13 @@ public class Home extends JFrame {
                         JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                                 JOptionPane.ERROR_MESSAGE);
                     } else {
-                        suma+=nota;
+                        suma += nota;
                         max = nota > max ? nota : max;
                         min = nota < min ? nota : min;
                     }
                 }
-                
-                //biologia
+
+                // Verificamos que el valor ingresado en el input de biologia sea un numero que este entre 0 y 20
                 if (!isNumeric(inputBiologia.getField().getText())) {
                     message = "La nota de " + inputBiologia.getLabel().getText() + " no es un número.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
@@ -150,13 +155,13 @@ public class Home extends JFrame {
                         JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                                 JOptionPane.ERROR_MESSAGE);
                     } else {
-                        suma+=nota;
+                        suma += nota;
                         max = nota > max ? nota : max;
                         min = nota < min ? nota : min;
                     }
                 }
-                
-                //matematicas
+
+                // Verificamos que el valor ingresado en el input de matematica sea un numero que este entre 0 y 20
                 if (!isNumeric(inputMatematica.getField().getText())) {
                     message = "La nota de " + inputMatematica.getLabel().getText() + " no es un número.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
@@ -168,13 +173,13 @@ public class Home extends JFrame {
                         JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                                 JOptionPane.ERROR_MESSAGE);
                     } else {
-                        suma+=nota;
+                        suma += nota;
                         max = nota > max ? nota : max;
                         min = nota < min ? nota : min;
                     }
                 }
-                
-                //historia
+
+                // Verificamos que el valor ingresado en el input de historia sea un numero que este entre 0 y 20
                 if (!isNumeric(inputHistoria.getField().getText())) {
                     message = "La nota de " + inputHistoria.getLabel().getText() + " no es un número.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
@@ -186,13 +191,13 @@ public class Home extends JFrame {
                         JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                                 JOptionPane.ERROR_MESSAGE);
                     } else {
-                        suma+=nota;
+                        suma += nota;
                         max = nota > max ? nota : max;
                         min = nota < min ? nota : min;
                     }
                 }
-                
-                //geografia
+
+                // Verificamos que el valor ingresado en el input de geografia sea un numero que este entre 0 y 20
                 if (!isNumeric(inputGeografia.getField().getText())) {
                     message = "La nota de " + inputGeografia.getLabel().getText() + " no es un número.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
@@ -204,13 +209,13 @@ public class Home extends JFrame {
                         JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                                 JOptionPane.ERROR_MESSAGE);
                     } else {
-                        suma+=nota;
+                        suma += nota;
                         max = nota > max ? nota : max;
                         min = nota < min ? nota : min;
                     }
                 }
-                
-                //dibujo
+
+                // Verificamos que el valor ingresado en el input de dibujo sea un numero que este entre 0 y 20
                 if (!isNumeric(inputDibujo.getField().getText())) {
                     message = "La nota de " + inputDibujo.getLabel().getText() + " no es un número.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
@@ -222,13 +227,13 @@ public class Home extends JFrame {
                         JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                                 JOptionPane.ERROR_MESSAGE);
                     } else {
-                        suma+=nota;
+                        suma += nota;
                         max = nota > max ? nota : max;
                         min = nota < min ? nota : min;
                     }
                 }
-                
-                //educ fisica
+
+                // Verificamos que el valor ingresado en el input de educ fisica sea un numero que este entre 0 y 20
                 if (!isNumeric(inputEducFisica.getField().getText())) {
                     message = "La nota de " + inputEducFisica.getLabel().getText() + " no es un número.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
@@ -240,15 +245,17 @@ public class Home extends JFrame {
                         JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                                 JOptionPane.ERROR_MESSAGE);
                     } else {
-                        suma+=nota;
+                        suma += nota;
                         max = nota > max ? nota : max;
                         min = nota < min ? nota : min;
                     }
                 }
-                
-                if (message == ""){
+
+                // Verificamos que ningun input haya estado incorrecto
+                if (message == "") {
+                    // Realizamos los calculos y mostramos los resultados en los labels
                     average = suma / 8;
-                    
+
                     notaBaja.setText("Nota más baja: " + min);
                     notaAlta.setText("Nota más alta: " + max);
                     sumaTotal.setText("Suma total: " + suma);
@@ -256,17 +263,21 @@ public class Home extends JFrame {
                 }
             }
         });
-        
+
+        // Le añadimos un evento al boton de logout
         btnLogout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                // Declaramos un Login y lo mostramos
                 Login login = new Login();
                 login.setVisible(true);
+                
+                // Ocultamos la vista de Home
                 setVisible(false);
             }
         });
     }
-    
 
+    // Definimos una funcion para revisar si un valor es un numero
     public static boolean isNumeric(String str) {
         try {
             Float.parseFloat(str);

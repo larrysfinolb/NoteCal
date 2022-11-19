@@ -6,12 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+// Definimos la clase login la cual extiende de un JFrame
 public class Login extends JFrame {
 
+    // Definimos el constructor de la clase login
     public Login() {
+        // Establecemos las propiedades de la ventana
         setTitle("Inicio de sesión");
         setSize(355, 450);
         setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Obtenemos el panel y le establecemos el layout a null
@@ -43,33 +47,46 @@ public class Login extends JFrame {
         boton.setBounds(85, 335, 177, 35);
         contenedor.add(boton);
 
+        // Le añadimos un evento al boton.
         boton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String message = "";
+                
+                // Verificamos con una expresion regular el input de cedula
                 if (!inputCedula.getField().getText().matches("^[0-9]{7,9}$")) {
                     message = "El campo " + inputCedula.getLabel().getText() + " es incorrecto, deberian haber de 7 a 9 numeros.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                             JOptionPane.ERROR_MESSAGE);
                 }
+                
+                // Verificamos con una expresion regular el input de nombre
                 if (!inputNombre.getField().getText().matches("^[A-ZÁ-ÚÑ][a-zA-Zá-úÁ-ÚñÑ]{2,}(?: [A-ZÁ-ÚÑ][a-zA-Zá-úÁ-ÚñÑ]*){0,2}$")) {
                     message = "El campo " + inputNombre.getLabel().getText() + " es incorrecto, debe empezar en mayusculas y contener al menos 3 letras.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                             JOptionPane.ERROR_MESSAGE);
                 }
+                
+                // Verificamos con una expresion regular el input de grado
                 if (!inputGrado.getField().getText().matches("^[1-9]|10|11$")) {
                     message = "El campo " + inputGrado.getLabel().getText() + " es incorrecto, debe ser un número entre el 1 y el 11.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                             JOptionPane.ERROR_MESSAGE);
                 }
+                
+                // Verificamos con una expresion regular el input de seccion
                 if (!inputSeccion.getField().getText().toUpperCase().matches("^A|B|C$")) {
                     message = "El campo " + inputSeccion.getLabel().getText() + " es incorrecto, las secciones disponibles son A, B y C.";
                     JOptionPane.showMessageDialog(new JFrame(), message, "Error al validar los campos",
                             JOptionPane.ERROR_MESSAGE);
                 }
                 
+                // Verificamos que ningun input haya estado incorrecto
                 if (message == ""){
+                    // Mostramos la vista de Home
                     Home home = new Home();
                     home.setVisible(true);
+                    
+                    // Ocultamos la vista de Login
                     setVisible(false);
                 }
             }
